@@ -1,4 +1,5 @@
 from house_info import HouseInfo
+from datetime import date, datetime
 
 class HumidityData(HouseInfo):
 
