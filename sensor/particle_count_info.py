@@ -29,3 +29,4 @@ class ParticleData(HouseInfo):
                 particulate["moderate"] = particulate["moderate"]+1
             if float(rec)>100.0:
                 particulate["bad"] = particulate["bad"]+1
+        return particulate
