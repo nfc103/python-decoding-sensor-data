@@ -6,6 +6,7 @@ from temperature_info import TemperatureData
 from humidity_info import HumidityData
 from statistics import mean
 from particle_count_info import ParticleData
+from energy_info import EnergyData
 ##############################
 # Do not remove these two lines
 # They are needed to validate your unittest
@@ -60,3 +61,9 @@ concentrations = particle_data.get_data_concentrations(data=recs)
 print("\tGood Air Quality Recs: {}".format(concentrations["good"]))
 print("\nModerate Air Quality Recs: {}".format(concentrations["moderate"]))
 print("\nBad Air Quality Recs: {}".format(concentrations["bad"]))
+
+energy_data = EnergyData(data)
+recs = energy_data.get_data_by_area(rec_area=test_area)
+print("\nHouse Energy sensor records for area {} = {}".format(test_area,len(recs)))
+total_energy = energy_data.calculate_energy_usage(data=recs)
+print("\nEnergy usage: {:2.2} Watts".format(total_energy))
