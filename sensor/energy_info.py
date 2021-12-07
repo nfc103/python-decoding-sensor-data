@@ -25,3 +25,7 @@ class EnergyData(HouseInfo):
     def get_data_by_date(self,rec_date=date.today()):
         recs = super().get_data_by_date("energy_usage", rec_date)
         return self._convert_data(recs)
+
+    def calculate_energy_usage(self,data):
+        total_energy = sum([field*self.ENERGY_PER_BULB for field in data])
+        return energy_usage
